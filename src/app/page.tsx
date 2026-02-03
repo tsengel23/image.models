@@ -1,5 +1,18 @@
-import Image from "next/image";
+import { Separator } from "../components/ui/separator";
+import { ChatMessage } from "./_components/ChatMessage";
+import { TabsModel } from "./_components/TabsModel";
 
 export default function Home() {
-  return <div></div>;
+  return (
+    <main className="border border-red-500 flex flex-col items-center w-screen min-h-screen bg-white relative">
+      <div className="py-4 pl-12 w-full">
+        <p className="text-black font-semibold text-base ai-glow ">AI tools</p>
+      </div>
+      <Separator />
+      <div className="flex flex-col items-center w-[580px] h-fit">
+        <TabsModel />
+      </div>
+      <ChatMessage />
+    </main>
+  );
 }
