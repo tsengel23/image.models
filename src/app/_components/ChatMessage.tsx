@@ -16,7 +16,7 @@ import { useState } from "react";
 export const ChatMessage = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="absolute bottom-10 right-10">
+    <div className="absolute bottom-10 right-10 shadow-accent">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button className="w-10 h-10 rounded-full">
