@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
+
 import { ImageAnalysis } from "./ImageAnalysis";
 import { Ingredients } from "./Ingredients";
 import { ImageCreator } from "./ImageCreator";

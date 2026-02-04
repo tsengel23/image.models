@@ -31,7 +31,7 @@ export const ChatMessage = () => {
         >
           <div className="flex flex-col">
             <div className="flex justify-between items-center mx-1">
-              <p className="text-[#09090B] font-medium text-base p-2">
+              <p className="text-[#09090B] font-medium text-base p-2 chat-glow">
                 Chat assistant
               </p>
               <Button

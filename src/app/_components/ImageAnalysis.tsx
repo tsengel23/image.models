@@ -5,6 +5,7 @@ import { useState } from "react";
 import { TabTitle } from "./TabTitle";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { FileText, Image } from "lucide-react";
 
 export const ImageAnalysis = () => {
   const [fileName, setFileName] = useState<string | null>(null);
@@ -42,6 +43,8 @@ export const ImageAnalysis = () => {
           Generate
         </Button>
         <ResultMessage
+          icon={FileText}
+          iconClassName="w-5 h-5 text-orange-600"
           title={"Here is the summary"}
           text={"First, enter your image to recognize an ingredients."}
         />

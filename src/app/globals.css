@@ -148,3 +148,26 @@
 .ai-glow {
   animation: aiGlow 5s ease-in-out infinite;
 }
+
+@keyframes chatGlow {
+  0%,
+  75% {
+    color: black;
+    text-shadow: none;
+  }
+  80% {
+    color: #3c87ff;
+    text-shadow: 0 0 10px rgba(#155dfc);
+  }
+  90% {
+    color: #60a5fa;
+    text-shadow: 0 0 10px rgba(#2c66e5);
+  }
+  100% {
+    color: black;
+    text-shadow: none;
+  }
+}
+.chat-glow {
+  animation: chatGlow 5s ease-in-out infinite;
+}

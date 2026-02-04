@@ -5,6 +5,7 @@ import { TabTitle } from "./TabTitle";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ResultMessage } from "./ResultMessage";
+import { FileText, Image } from "lucide-react";
 
 export const Ingredients = () => {
   return (
@@ -22,6 +23,8 @@ export const Ingredients = () => {
           Generate
         </Button>
         <ResultMessage
+          icon={FileText}
+          iconClassName="w-5 h-5 text-orange-600"
           title={"Identified Ingredients"}
           text={"First, enter your text to recognize an ingredients."}
         />
