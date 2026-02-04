@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
+import { ResultMessage } from "./ResultMessage";
 
 export function TabsModel() {
   const [fileName, setFileName] = useState<string | null>(null);
@@ -50,6 +51,10 @@ export function TabsModel() {
             <Button variant={"outline"} type="submit" className="">
               Generate
             </Button>
+            <ResultMessage
+              title={"Here is the summary"}
+              text={"First, enter your image to recognize an ingredients."}
+            />
           </div>
         </TabsContent>
         <TabsContent value="ingredient">
@@ -65,6 +70,10 @@ export function TabsModel() {
             <Button variant={"outline"} type="submit" className="">
               Generate
             </Button>
+            <ResultMessage
+              title={"Identified Ingredients"}
+              text={"First, enter your text to recognize an ingredients."}
+            />
           </div>
         </TabsContent>
         <TabsContent value="creator">
@@ -80,6 +89,10 @@ export function TabsModel() {
             <Button variant={"outline"} type="submit" className="">
               Generate
             </Button>
+            <ResultMessage
+              title={"Result"}
+              text={"First, enter your text to generate an image."}
+            />
           </div>
         </TabsContent>
       </Tabs>

@@ -8,10 +8,11 @@ export default function Home() {
       <div className="py-4 pl-12 w-full">
         <p className="text-black font-semibold text-base ai-glow ">AI tools</p>
       </div>
-      <Separator />
-      <div className="flex flex-col items-center w-[580px] h-fit">
+      <Separator className="mb-6" />
+      <div className="flex flex-col items-center w-[580px] h-fit border p-5">
         <TabsModel />
       </div>
+
       <ChatMessage />
     </main>
   );
