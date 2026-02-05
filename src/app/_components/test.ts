@@ -5,9 +5,9 @@ import { useState, useRef } from "react";
 import { TabTitle } from "./TabTitle";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { FileText, Image, Loader2 } from "lucide-react";
+import { FileText, Loader2 } from "lucide-react";
+
 import { pipeline } from "@huggingface/transformers";
-import { Card } from "@/components/ui/card";
 
 export const ImageAnalysis = () => {
   // const [fileName, setFileName] = useState<string | null>(null);
@@ -16,7 +16,6 @@ export const ImageAnalysis = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isModelLoading, setIsModelLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const captionerRef = useRef<any>(null);
 
@@ -50,7 +49,7 @@ export const ImageAnalysis = () => {
         );
         setIsModelLoading(false);
       }
-      //Run inference
+
       const output = await captionerRef.current(imagePreview);
 
       if (Array.isArray(output) && output.length > 0) {
@@ -72,7 +71,6 @@ export const ImageAnalysis = () => {
       <p className="text-[#71717A] font-normal text-sm tracking-normal leading-5 my-2">
         Upload a food photo, and AI will detect the ingredients.
       </p>
-
       <div className="flex flex-col gap-2 items-end w-full ">
         <div className="w-full flex items-center gap-4">
           <Label
@@ -120,58 +118,3 @@ export const ImageAnalysis = () => {
     </div>
   );
 };
-
-// "use client";
-// import { Button } from "@/components/ui/button";
-// import { ResultMessage } from "./ResultMessage";
-// import { useState } from "react";
-// import { TabTitle } from "./TabTitle";
-// import { Label } from "@/components/ui/label";
-// import { Input } from "@/components/ui/input";
-// import { FileText, Image } from "lucide-react";
-
-// export const ImageAnalysis = () => {
-//   const [fileName, setFileName] = useState<string | null>(null);
-
-//   return (
-//     <div>
-//       <TabTitle title={"Image analysis"} />
-//       <Label className="text-[#71717A] font-normal text-sm tracking-normal leading-5 my-2">
-//         Upload a food photo, and AI will detect the ingredients.
-//       </Label>
-//       <div className="flex flex-col gap-2 items-end w-full ">
-//         <div className="relative w-full">
-//           <Input
-//             type="file"
-//             className="pr-28"
-//             onChange={(e) => {
-//               const file = e.target.files?.[0];
-//               setFileName(file ? file.name : null);
-//             }}
-//           />
-
-//           <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground truncate max-w-[140px]">
-//             {fileName || "JPG, PNG"}
-//           </span>
-//         </div>
-
-//         {/* <div className="relative w-full">
-//               <Input id="picture" type="file" />
-//               <span className="absolute text-muted-foreground text-sm   right-6 top-2">
-//                 JPG, PNG
-//               </span>
-//             </div> */}
-
-//         <Button variant={"outline"} type="submit" className="">
-//           Generate
-//         </Button>
-//         <ResultMessage
-//           icon={FileText}
-//           iconClassName="w-5 h-5 text-orange-600"
-//           title={"Here is the summary"}
-//           text={"First, enter your image to recognize an ingredients."}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
