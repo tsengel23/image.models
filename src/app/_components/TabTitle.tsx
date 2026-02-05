@@ -6,9 +6,10 @@ import { RotateCw, Sparkles } from "lucide-react";
 
 type TabTitle = {
   title: string;
+  onReset?: () => void;
 };
 
-export const TabTitle = ({ title }: TabTitle) => {
+export const TabTitle = ({ title, onReset }: TabTitle) => {
   return (
     <div className="flex justify-between items-center w-full">
       <p className="text-[#09090B] text-xl font-semibold leading-7 flex gap-2 items-center">
@@ -18,9 +19,11 @@ export const TabTitle = ({ title }: TabTitle) => {
         {title}
       </p>
       <Button
-        type="submit"
+        type="button"
         variant={"outline"}
         className="h-10 w-10 rounded-lg"
+        onClick={onReset}
+        disabled={!onReset}
       >
         <RotateCw />
       </Button>
