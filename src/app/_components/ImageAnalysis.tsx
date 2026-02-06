@@ -117,6 +117,13 @@ export const ImageAnalysis = () => {
           text={"First, enter your image to recognize an ingredients."}
         />
       </div>
+      <div>
+        {result && !loading
+          ? result
+          : loading
+            ? "Working..."
+            : "Upload a food photo, and AI will detect the ingredients."}
+      </div>
     </div>
   );
 };
