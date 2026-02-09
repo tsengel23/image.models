@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import { TabTitle } from "./TabTitle";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { FileText, Image, Loader2 } from "lucide-react";
+import { FileText, Image, Loader2, Trash } from "lucide-react";
 import { pipeline } from "@huggingface/transformers";
 import { Card } from "@/components/ui/card";
 
@@ -14,8 +14,9 @@ export const ImageAnalysis = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [isModelLoading, setIsModelLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
+  const [isModelLoading, setIsModelLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const captionerRef = useRef<any>(null);
@@ -72,28 +73,48 @@ export const ImageAnalysis = () => {
       <p className="text-[#71717A] font-normal text-sm tracking-normal leading-5 my-2">
         Upload a food photo, and AI will detect the ingredients.
       </p>
+      <div className="flex flex-col items-end gap-2">
+        <div className="flex flex-col gap-2 w-full ">
+          <div className="w-full flex items-center gap-4 border p-2 rounded-lg gap-2 ">
+            <Label
+              htmlFor="file-upload"
+              className="cursor-pointer text-sm font-medium"
+            >
+              Choose File
+              <span className="text-sm text-muted-foreground">
+                {selectedFile ? selectedFile.name : "JPG, PNG"}
+              </span>
+              <Input
+                id="file-upload"
+                accept=".jpg,.jpeg,.png,.webp"
+                type="file"
+                className="hidden"
+                onChange={handleFileChange}
+              />
+            </Label>
+          </div>
 
-      <div className="flex flex-col gap-2 items-end w-full ">
-        <div className="w-full flex items-center gap-4">
-          <Label
-            htmlFor="file-upload"
-            className="cursor-pointer text-sm font-medium"
-          >
-            Choose File
-          </Label>
-          <span className="text-sm text-muted-foreground">
-            {selectedFile ? selectedFile.name : "JPG, PNG"}
-          </span>
-          <Input
-            id="file-upload"
-            accept=".jpg,.jpeg,.png"
-            type="file"
-            className="hidden"
-            onChange={handleFileChange}
-          />
-          {/* <span className="text-sm text-muted-foreground"></span> */}
+          {imagePreview && (
+            <div className="relative w-60 h-40">
+              <img
+                src={imagePreview}
+                alt="preview"
+                className="w-60 h-40 object-cover rounded-lg"
+              />
+              <Button
+                size="icon"
+                variant={"outline"}
+                className="absolute bottom-2 right-2"
+                onClick={() => {
+                  setImagePreview(null);
+                  setResult(null);
+                }}
+              >
+                <Trash className="w-4 h-4" />
+              </Button>
+            </div>
+          )}
         </div>
-
         <Button
           variant={"outline"}
           type="button"
@@ -110,19 +131,20 @@ export const ImageAnalysis = () => {
             "Generate"
           )}
         </Button>
-        <ResultMessage
-          icon={FileText}
-          iconClassName="w-5 h-5 text-orange-600"
-          title={"Here is the summary"}
-          text={"First, enter your image to recognize an ingredients."}
-        />
       </div>
-      <div>
-        {result && !loading
-          ? result
-          : loading
-            ? "Working..."
-            : "Upload a food photo, and AI will detect the ingredients."}
+
+      <ResultMessage
+        icon={FileText}
+        iconClassName="w-5 h-5 text-orange-400"
+        title={"Here is the summary"}
+        // text={"First, enter your image to recognize an ingredients."}
+      />
+      <div className="text-[#71717A] text-sm font-normal border border-gray-200 rounded-md p-2">
+        {isLoading
+          ? "Analyzing image..."
+          : result
+            ? result
+            : "First, enter your image to recognize ingredients."}
       </div>
     </div>
   );

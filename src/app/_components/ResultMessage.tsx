@@ -4,7 +4,7 @@ import { FileText, LucideIcon } from "lucide-react";
 
 type ResultMessageProps = {
   title: string;
-  text: string;
+  // text: string;
   icon?: LucideIcon;
   iconClassName?: string;
   //   result: string;
@@ -13,9 +13,9 @@ type ResultMessageProps = {
 
 export const ResultMessage = ({
   title,
-  text,
+  // text,
   icon: Icon = FileText,
-  iconClassName = "w-5 h-5 text-orange-600",
+  iconClassName = "w-5 h-5 text-orange-400",
   //   result,
   //   image,
 }: ResultMessageProps) => {
@@ -25,7 +25,7 @@ export const ResultMessage = ({
         <Icon className={iconClassName} />
         <h2 className="text-black font-semibold text-xl">{title}</h2>
       </div>
-      <p className="text-[#71717A] font-normal text-sm">{text}</p>
+      {/* <p className="text-[#71717A] font-normal text-sm">{text}</p> */}
       {/* <div>{result}</div> */}
     </div>
   );

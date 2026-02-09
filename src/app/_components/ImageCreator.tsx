@@ -6,8 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ResultMessage } from "./ResultMessage";
 import { Spinner } from "@/components/ui/spinner";
+import { useState } from "react";
 
 export const ImageCreator = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = useState<string | null>(null);
   return (
     <div>
       <TabTitle title={"Food image creator"} />
@@ -28,10 +31,17 @@ export const ImageCreator = () => {
         </Button>
         <ResultMessage
           icon={Image}
-          iconClassName="w-5 h-5 text-green-600"
+          iconClassName="w-5 h-5 text-green-400"
           title={"Result"}
-          text={"First, enter your text to generate an image."}
+          // text={"First, enter your text to generate an image."}
         />
+      </div>
+      <div className="text-[#71717A] text-sm font-normal">
+        {isLoading
+          ? "Analyzing image..."
+          : result
+            ? result
+            : "First, enter your image to recognize ingredients."}
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export const TabTitle = ({ title, onReset }: TabTitle) => {
     <div className="flex justify-between items-center w-full">
       <p className="text-[#09090B] text-xl font-semibold leading-7 flex gap-2 items-center">
         <span>
-          <Sparkles className="w-6 h-6 text-blue-500" />
+          <Sparkles className="w-6 h-6 text-blue-400" />
         </span>
         {title}
       </p>

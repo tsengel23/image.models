@@ -6,8 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ResultMessage } from "./ResultMessage";
 import { FileText, Image } from "lucide-react";
+import { useState } from "react";
 
 export const Ingredients = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = useState<string | null>(null);
   return (
     <div>
       <TabTitle title={"Ingredient recognition"} />
@@ -24,10 +27,17 @@ export const Ingredients = () => {
         </Button>
         <ResultMessage
           icon={FileText}
-          iconClassName="w-5 h-5 text-orange-600"
+          iconClassName="w-5 h-5 text-orange-400"
           title={"Identified Ingredients"}
-          text={"First, enter your text to recognize an ingredients."}
+          // text={"First, enter your text to recognize an ingredients."}
         />
+      </div>
+      <div className="text-[#71717A] text-sm font-normal">
+        {isLoading
+          ? "Analyzing image..."
+          : result
+            ? result
+            : "First, enter your image to recognize ingredients."}
       </div>
     </div>
   );
