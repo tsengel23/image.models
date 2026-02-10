@@ -16,7 +16,7 @@ export const ImageAnalysis = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const [isModelLoading, setIsModelLoading] = useState(false);
-  const [loading, setLoading] = useState<boolean>(false);
+  // const [loading, setLoading] = useState<boolean>(false);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const captionerRef = useRef<any>(null);
