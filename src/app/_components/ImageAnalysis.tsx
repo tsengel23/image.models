@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { FileText, Image, Loader2, Trash } from "lucide-react";
 import { pipeline } from "@huggingface/transformers";
-import { Card } from "@/components/ui/card";
 
 export const ImageAnalysis = () => {
   // const [fileName, setFileName] = useState<string | null>(null);
