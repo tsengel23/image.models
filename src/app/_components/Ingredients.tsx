@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ResultMessage } from "./ResultMessage";
 import { FileText, Image, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { pipeline } from "@huggingface/transformers";
 
 export const Ingredients = () => {
   const [isLoading, setIsLoading] = useState(false);
