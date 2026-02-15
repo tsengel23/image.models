@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     }
     // 3️⃣ API key шалгах
     const apiKey = process.env.GEMINI_API_KEY;
-    console.log("API: apiKey", apiKey);
+    // console.log("API: apiKey", apiKey);<---------------DELETE hii!!!!
     if (!apiKey) {
       return Response.json(
         { error: "API key is not configured" },

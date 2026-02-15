@@ -28,6 +28,7 @@ export const ImageCreator = () => {
     try {
       const res = await fetch("/api/text-to-image", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
       });
 

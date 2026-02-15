@@ -5,7 +5,7 @@ import { TabsModel } from "./_components/TabsModel";
 
 export default function Home() {
   return (
-    <main className="border border-red-500 flex flex-col items-center w-screen min-h-screen bg-white relative">
+    <main className="border  flex flex-col items-center w-screen min-h-screen bg-white relative">
       <div className="py-4 pl-12 w-full bg-gray-600">
         <p className="text-black font-semibold text-base ai-glow ">AI tools</p>
       </div>
