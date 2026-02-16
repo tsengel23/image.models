@@ -20,7 +20,14 @@ export async function POST(req: Request) {
       );
     } // 3️⃣ AI дуудах
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    // const result = await model.generateContent({
+    //   contents: [{ role: "user", parts: [{ text: message }] }],
+    //   generationConfig: {
+    //     maxOutputTokens: 120,
+
+    //   },
+    // }); // <---- hervee irj bgaa chat-iin urtad limit togtoomoor bval uuniig ashiglana!!!!!
     const result = await model.generateContent(message);
     const text = result.response.text();
 
@@ -111,7 +118,7 @@ export async function POST(req: Request) {
 //     const lastMessage = messages[messages.length - 1];
 
 //     const chat = ai.chats.create({
-//       model: "gemini-2.0-flash",
+//       model: "gemini-2.5-flash",
 //       history,
 //       config: {
 //         systemInstruction:
@@ -182,7 +189,7 @@ export async function POST(req: Request) {
 //     const lastMessage = trimmed[trimmed.length - 1];
 
 //     const chat = ai.chats.create({
-//       model: "gemini-2.0-flash",
+//       model: "gemini-2.5-flash",
 //       history,
 //       config: {
 //         systemInstruction:

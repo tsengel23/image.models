@@ -101,7 +101,7 @@ export const ChatMessage = () => {
             </div>
             <Separator />
           </div>
-          <ScrollArea className="w-full flex-1 p-3 border">
+          <ScrollArea className="w-full flex-1 p-3 border overflow-hidden">
             <div className="flex flex-col gap-2">
               {items.map((m, i) => (
                 <div

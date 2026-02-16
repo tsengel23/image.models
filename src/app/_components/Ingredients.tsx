@@ -81,7 +81,6 @@ export const Ingredients = () => {
           icon={FileText}
           iconClassName="w-5 h-5 text-orange-400"
           title={"Identified Ingredients"}
-          // text={"First, enter your text to recognize an ingredients."}
         />
       </div>
       <div className="text-[#71717A] text-sm font-normal">

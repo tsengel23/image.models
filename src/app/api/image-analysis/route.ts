@@ -33,6 +33,8 @@ export async function POST(req: Request) {
       );
     }
     // ur dung butsaah
+    const a = await response.text();
+    console.log(a);
     const result = await response.json();
     return Response.json({
       caption: result[0]?.generated_text || "Can not defined",
